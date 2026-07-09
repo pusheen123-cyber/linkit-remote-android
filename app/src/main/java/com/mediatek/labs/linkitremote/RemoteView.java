@@ -113,20 +113,19 @@ public class RemoteView extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
-        switch (item.getItemId()) {
-            case R.id.action_refresh:
-                disconnectDevice();
-                mHandler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        connectDevice();
-                    }
-                }, 10);
+        int id = item.getItemId();
+        if (id == R.id.action_refresh) {
+            disconnectDevice();
+            mHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    connectDevice();
+                }
+            }, 10);
 
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     private void connectDevice() {

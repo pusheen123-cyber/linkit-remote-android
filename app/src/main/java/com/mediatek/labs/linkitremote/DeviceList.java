@@ -105,13 +105,12 @@ public class DeviceList extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
-        switch (item.getItemId()) {
-            case R.id.action_refresh:
-                scanDevices();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        int id = item.getItemId();
+        if (id == R.id.action_refresh) {
+            scanDevices();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     // User BT enable response

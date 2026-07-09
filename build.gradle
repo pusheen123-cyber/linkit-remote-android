@@ -2,10 +2,14 @@
 
 buildscript {
     repositories {
-        jcenter()
+        google()
+        mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
+        // 原本專案釘死在 3.0.1（2017 年版本），jcenter() 也已經在 2024 年關站，
+        // 這裡升級到目前 Android Studio 仍完整支援、且不需要大改 DSL 語法的版本。
+        // 如果 Android Studio 開啟專案時跳出「Upgrade Gradle Plugin」的提示，直接接受即可。
+        classpath 'com.android.tools.build:gradle:8.13.2'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -14,7 +18,8 @@ buildscript {
 
 allprojects {
     repositories {
-        jcenter()
+        google()
+        mavenCentral()
     }
 }
 
